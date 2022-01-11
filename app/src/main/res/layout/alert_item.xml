@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Название события"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/etFirstDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Краткое описание"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/etName"
+        app:layout_constraintStart_toStartOf="@+id/etName"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <EditText
+        android:id="@+id/etSecDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Детальное описание"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/etFirstDesc"
+        app:layout_constraintStart_toStartOf="@+id/etFirstDesc"
+        app:layout_constraintTop_toBottomOf="@+id/etFirstDesc" />
+
+    <EditText
+        android:id="@+id/etFirstDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Дата начала"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/etSecDesc"
+        app:layout_constraintStart_toStartOf="@+id/etSecDesc"
+        app:layout_constraintTop_toBottomOf="@+id/etSecDesc" />
+
+    <EditText
+        android:id="@+id/etSecDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Дата завершения"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/etFirstDate"
+        app:layout_constraintStart_toStartOf="@+id/etFirstDate"
+        app:layout_constraintTop_toBottomOf="@+id/etFirstDate" />
+
+    <EditText
+        android:id="@+id/etTrud"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Трудности"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/etSecDate"
+        app:layout_constraintStart_toStartOf="@+id/etSecDate"
+        app:layout_constraintTop_toBottomOf="@+id/etSecDate" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
