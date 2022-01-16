@@ -2,6 +2,7 @@ package com.example.dz2022
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.icu.text.Transliterator
 import android.os.Bundle
 import android.util.Log
@@ -16,10 +17,19 @@ class SecondActivity : AppCompatActivity() {
     lateinit var binding: ActivitySecondBinding
     lateinit var adapter: MyAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val v = LayoutInflater.from(this).inflate(R.layout.alert_item, null)
+        val name = v.findViewById<EditText>(R.id.etName)
+        val fdesc = v.findViewById<EditText>(R.id.etFirstDesc)
+        val sdesc = v.findViewById<EditText>(R.id.etSecDesc)
+        val fdate = v.findViewById<EditText>(R.id.etFirstDate)
+        val sdate= v.findViewById<EditText>(R.id.etSecDesc)
+        val trud = v.findViewById<EditText>(R.id.etTrud)
 
         val res = intent.getSerializableExtra("key") as Data
         val res2 = intent.getIntExtra("key2",0)
@@ -33,20 +43,15 @@ class SecondActivity : AppCompatActivity() {
         adapter = MyAdapter(Constance.events,this)
 
         binding.btnBack.setOnClickListener{
-            adapter.update(res2)
-            onBackPressed()
-            adapter.notifyItemChanged(res2)
+            val i = Intent (this, MainActivity::class.java)
+            i.putExtra("key2", res2)
+            startActivity(i)
+            adapter.notifyDataSetChanged()
 
         }
 
         binding.editBtn.setOnClickListener {
-            val v = LayoutInflater.from(this).inflate(R.layout.alert_item, null)
-            val name = v.findViewById<EditText>(R.id.etName)
-            val fdesc = v.findViewById<EditText>(R.id.etFirstDesc)
-            val sdesc = v.findViewById<EditText>(R.id.etSecDesc)
-            val fdate = v.findViewById<EditText>(R.id.etFirstDate)
-            val sdate= v.findViewById<EditText>(R.id.etSecDesc)
-            val trud = v.findViewById<EditText>(R.id.etTrud)
+
 
             AlertDialog.Builder(this).setView(v)
                 .setPositiveButton("Ok") { dialog, _ ->

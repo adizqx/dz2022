@@ -31,12 +31,12 @@ class MyAdapter(private var array: ArrayList<Data>,val context: FragmentActivity
         val item = array[position]
         val ind = array.indexOf(item)
 
-        holder.Name.text = item.Name
-        holder.fDesc.text = item.firstDesc
-        holder.sDesc.text = item.secDesc
-        holder.fDate.text = item.firstDate
-        holder.sDate.text = item.secDate
-        holder.trud.text = item.Trud
+        holder.Name.text = "Название: ${item.Name}"
+        holder.fDesc.text = "Описание: ${item.firstDesc}"
+        holder.sDesc.text = "Описание2: ${item.secDesc}"
+        holder.fDate.text = "Дата:${item.firstDate}"
+        holder.sDate.text = "Дата2:${item.secDate}"
+        holder.trud.text = "Трудности:${item.Trud}"
 
 
 
@@ -46,7 +46,7 @@ class MyAdapter(private var array: ArrayList<Data>,val context: FragmentActivity
             i.putExtra("key", item)
             i.putExtra("key2", ind)
             context.startActivity(i)
-            notifyItemChanged(ind)
+            notifyDataSetChanged()
         }
     }
 
@@ -54,14 +54,11 @@ class MyAdapter(private var array: ArrayList<Data>,val context: FragmentActivity
     override fun getItemCount(): Int {
         return array.size
     }
-    @SuppressLint("NotifyDataSetChanged")
-    fun update(position: Int){
-        val item = array[position]
 
-        val ind = array.indexOf(item)
-        notifyItemChanged(ind)
 
-    }
+//fun update(){
+//    notifyDataSetChanged()
+//}
 
 
 }
