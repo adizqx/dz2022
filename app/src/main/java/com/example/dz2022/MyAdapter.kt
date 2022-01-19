@@ -59,6 +59,9 @@ class MyAdapter(private var array: ArrayList<Data>,val context: FragmentActivity
 //fun update(){
 //    notifyDataSetChanged()
 //}
-
+fun bindActors(newData: ArrayList<Data>) {
+    array = newData
+    notifyDataSetChanged()
+}
 
 }

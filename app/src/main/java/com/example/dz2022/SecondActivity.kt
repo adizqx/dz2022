@@ -43,11 +43,11 @@ class SecondActivity : AppCompatActivity() {
         adapter = MyAdapter(Constance.events,this)
 
         binding.btnBack.setOnClickListener{
-            val i = Intent (this, MainActivity::class.java)
-            i.putExtra("key2", res2)
-            startActivity(i)
-            adapter.notifyDataSetChanged()
-
+//            val i = Intent (this, MainActivity::class.java)
+//            i.putExtra("key2", res2)
+//            startActivity(i)
+//            adapter.notifyDataSetChanged()
+            onBackPressed()
         }
 
         binding.editBtn.setOnClickListener {
